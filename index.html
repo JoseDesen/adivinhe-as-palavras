@@ -1,19 +1,20 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Adivinhe as palavras</title>
+		<title>Advinhe as palavras</title>
 		<style>
 		form{
 			text-align:rigth;
 			background-color:blue;
 			padding-left:10px;
+			padding-top:10px;
+			padding-bottom:10px;
 			height:315px;
 		}
-		
 		input{
-			width:105px;
-			height:105px;
-			font-size:100px;
+			width:100px;
+			height:100px;
+			font-size:95px;
 			text-align:center;
 			background-color:white;
 		}
@@ -331,8 +332,8 @@
 		</script>
 	</head>
 	<body onload="comecar()" bgcolor="black">
-		<h1>Adivinhe as palavras</h1>
-		<div id="letraerrada"></div>
+		<h1>Advinhe as palavras</h1>
+		<b><div id="letraerrada"></div></b>
 		<form name="f">
 		<div id="palavra1"></div>
 		<div id="palavra2"></div>
@@ -340,7 +341,7 @@
 		<h1><div id="dica"></div></h1>
 		
 		</br>
-			<input type="button" value="A" name="A" onclick="letra('A')">
+			<input type="button" value="A" name="A" onclick="letra('A')" >
 			<input type="button" value="B" name="B" onclick="letra('B')">
 			<input type="button" value="C" name="C" onclick="letra('C')">
 			<input type="button" value="D" name="D" onclick="letra('D')">
