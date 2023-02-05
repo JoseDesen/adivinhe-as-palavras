@@ -1,0 +1,401 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Adivinhe as palavras - Objetos</title>
+		<style>
+		form{
+			text-align:rigth;
+			background-color:blue;
+			padding-left:10px;
+			padding-top:10px;
+			padding-bottom:10px;
+			height:315px;
+		}
+		input{
+			width:100px;
+			height:100px;
+			font-size:95px;
+			text-align:center;
+			background-color:white;
+		}
+		img{
+		width:100px;
+		height:100px;
+	}
+		h1{
+			font-size:50px;
+			text-align:center;
+			color:blue;
+		}
+		#letraerrada{
+			font-size:25px;
+			color:red;
+			text-align:center;
+		}
+		
+		</style>
+		<script>
+			var palavra1="";
+			var palavra2="";
+			var palavra3="";
+			var contagem_letra_certa=0;
+			var letras_erradas="";
+			var coracoes=0;
+			function letra(l){
+				var contagem_letra_errada=0;
+				var posicao=0;
+				for(a=1;a<=palavra1.length;a++){
+					var  letra_posicional=palavra1[posicao];
+					if(letra_posicional==l){
+						if(posicao==0){
+							document.f.l11.value=l;
+						}
+						if(posicao==1){
+							document.f.l21.value=l;
+						}
+						if(posicao==2){
+							document.f.l31.value=l;
+						}
+						if(posicao==3){
+							document.f.l41.value=l;
+						}
+						if(posicao==4){
+							document.f.l51.value=l;
+						}
+						if(posicao==5){
+							document.f.l61.value=l;
+						}
+						if(posicao==6){
+							document.f.l71.value=l;
+						}
+						if(posicao==7){
+							document.f.l81.value=l;
+						}
+						if(posicao==8){
+							document.f.l91.value=l;
+						}
+						contagem_letra_certa=contagem_letra_certa+1;
+					}else{
+						contagem_letra_errada=contagem_letra_errada+1;
+					}
+					posicao=posicao+1;
+				}
+				var posicao=0;
+				for(a=1;a<=palavra2.length;a++){
+					var  letra_posicional=palavra2[posicao];
+					if(letra_posicional==l){
+						if(posicao==0){
+							document.f.l12.value=l;
+						}
+						if(posicao==1){
+							document.f.l22.value=l;
+						}
+						if(posicao==2){
+							document.f.l32.value=l;
+						}
+						if(posicao==3){
+							document.f.l42.value=l;
+						}
+						if(posicao==4){
+							document.f.l52.value=l;
+						}
+						if(posicao==5){
+							document.f.l62.value=l;
+						}
+						if(posicao==6){
+							document.f.l72.value=l;
+						}
+						if(posicao==7){
+							document.f.l82.value=l;
+						}
+						if(posicao==8){
+							document.f.l92.value=l;
+						}
+						contagem_letra_certa=contagem_letra_certa+1;
+					}else{
+						contagem_letra_errada=contagem_letra_errada+1;
+					}
+					posicao=posicao+1;
+				}
+				var posicao=0;
+				for(a=1;a<=palavra3.length;a++){
+					var  letra_posicional=palavra3[posicao];
+					if(letra_posicional==l){
+						if(posicao==0){
+							document.f.l13.value=l;
+						}
+						if(posicao==1){
+							document.f.l23.value=l;
+						}
+						if(posicao==2){
+							document.f.l33.value=l;
+						}
+						if(posicao==3){
+							document.f.l43.value=l;
+						}
+						if(posicao==4){
+							document.f.l53.value=l;
+						}
+						if(posicao==5){
+							document.f.l63.value=l;
+						}
+						if(posicao==6){
+							document.f.l73.value=l;
+						}
+						if(posicao==7){
+							document.f.l83.value=l;
+						}
+						if(posicao==8){
+							document.f.l93.value=l;
+						}
+						if(posicao==9){
+							document.f.l103.value=l;
+						}
+						if(posicao==10){
+							document.f.l113.value=l;
+						}
+						contagem_letra_certa=contagem_letra_certa+1;
+					}else{
+						contagem_letra_errada=contagem_letra_errada+1;
+					}
+					posicao=posicao+1;
+				}
+				
+				var total_letras=palavra1.length+palavra2.length+palavra3.length;
+				if(contagem_letra_errada==total_letras){
+					coracoes=coracoes-1;
+					var img_coracoes="";
+					for(a=1;a<=coracoes;a++){
+					 img_coracoes=img_coracoes+"<img src='coracoes.jpg'>";
+					}
+					var div_coracoes=document.getElementById('coracoes');
+					div_coracoes.innerHTML="<div id='coracoes'>"+img_coracoes+"</div>";
+				
+					letras_erradas=letras_erradas+" "+l;
+					var div_letraerrada=document.getElementById('letraerrada');
+					div_letraerrada.innerHTML=letras_erradas;
+				}
+				
+				if(coracoes>0){
+					if(contagem_letra_certa==total_letras){
+						if(coracoes<5){
+							alert("Excelente \nMas será que vc consegui sem errar nenhuma?");
+						}else{
+							alert("Vc é foda \nTire um print e mande para o desevolvedor");
+						}
+					}
+				}else{
+					alert("As vidas acabaram \nAs palavras eram: \n"+palavra1+"\n"+palavra2+"\n"+palavra3);
+				}
+				if(l=="A"){
+					document.f.A.disabled=true;
+				}
+				if(l=="B"){
+					document.f.B.disabled=true;
+				}
+				if(l=="C"){
+					document.f.C.disabled=true;
+				}
+				if(l=="D"){
+					document.f.D.disabled=true;
+				}
+				if(l=="E"){
+					document.f.E.disabled=true;
+				}
+				if(l=="F"){
+					document.f.F.disabled=true;
+				}
+				if(l=="G"){
+					document.f.G.disabled=true;
+				}
+				if(l=="H"){
+					document.f.H.disabled=true;
+				}
+				if(l=="I"){
+					document.f.I.disabled=true;
+				}
+				if(l=="J"){
+					document.f.J.disabled=true;
+				}
+				if(l=="K"){
+					document.f.K.disabled=true;
+				}
+				if(l=="L"){
+					document.f.L.disabled=true;
+				}
+				if(l=="M"){
+					document.f.M.disabled=true;
+				}
+				if(l=="N"){
+					document.f.N.disabled=true;
+				}
+				if(l=="O"){
+					document.f.O.disabled=true;
+				}
+				if(l=="P"){
+					document.f.P.disabled=true;
+				}
+				if(l=="R"){
+					document.f.R.disabled=true;
+				}
+				if(l=="S"){
+					document.f.S.disabled=true;
+				}
+				if(l=="T"){
+					document.f.T.disabled=true;
+				}
+				if(l=="U"){
+					document.f.U.disabled=true;
+				}
+				if(l=="V"){
+					document.f.V.disabled=true;
+				}
+				if(l=="W"){
+					document.f.W.disabled=true;
+				}
+				if(l=="X"){
+					document.f.X.disabled=true;
+				}
+				if(l=="Y"){
+					document.f.Y.disabled=true;
+				}
+				if(l=="Z"){
+					document.f.Z.disabled=true;
+				}
+				
+			}
+			
+			
+			function comecar(){
+				coracoes=5;
+				
+				var dica="OBJETOS";
+				var div_dica=document.getElementById('dica');
+				div_dica.innerHTML=dica;
+				
+				BD=["ABAJOUR","ALFINETE","ANEL","ANZOL","ANDADOR","APONTADOR","ALMOFADA","BOLA","BOTAS","BEXIGA","CD","COLHER","CAMISA","CAMISETA","CANETA","COPO","CARIMBO",
+				"DADO","DEDAL","DVD","DENTADURA","ESCADA","ESCOVA","ESPELHO","ESPADA","ESMALTE","FACA" ,"FOLHA","FURADEIRA","FERRADURA","FUNIL","FAROL","GAIOLA","GARFO","GARRAFA","GAITA","GAVETA","GUITARRA","GRAVATA","GORRO",
+				"HARPA","HOLOFOTE","ISQUEIRO","ISOPOR","ISCA","INALADOR","JARRA","JAQUETA","JANELA","LUVAS","LAMPADA","LEQUE","LIVRO","LANTERNA","LIXEIRA","LAPISEIRA","LATA","MOLA","MAQUIAGEM","MEIAS","MALA","MOCHILA","NAVALHA","NOVELO",
+				"PANELA","PEDRA","PAPEL","PRATO","PULSEIRA","QUADRO","RATOEIRA","ROLETA","REMO","ROTEADOR","REVISTA","SAPATO","SALEIRO","SINO","SACO","SACOLA","SABONETE","SHORTS","TESOURA","TECLADO","TELEFONE","TAMPA","TRENA","TELHA","TATAME","TAMANCO",
+				"URNA","UNIFORME","VASSOURA","VIDRO","VARAL","VASO","VISEIRA","VELA","XICARA","XADREZ","XAROPE"];
+				var sorteio=Math.floor(Math.random() * (BD.length-1));
+				palavra1=BD[sorteio];
+				sorteio=Math.floor(Math.random() * 27);
+				palavra2=BD[sorteio];
+				if(palavra1==palavra2){
+					sorteio=Math.floor(Math.random() * 27);
+					palavra2=BD[sorteio];
+				}
+				if(palavra1==palavra2){
+					sorteio=Math.floor(Math.random() * 27);
+					palavra2=BD[sorteio];
+				}
+				if(palavra1==palavra2){
+					sorteio=Math.floor(Math.random() * 27);
+					palavra2=BD[sorteio];
+				}
+				sorteio=Math.floor(Math.random() * 27);
+				palavra3=BD[sorteio];
+				if(palavra3==palavra1 || palavra3==palavra2){
+					sorteio=Math.floor(Math.random() * 27);
+					palavra3=BD[sorteio];
+				}
+				if(palavra3==palavra1 || palavra3==palavra2){
+					sorteio=Math.floor(Math.random() * 27);
+					palavra3=BD[sorteio];
+				}
+				if(palavra3==palavra1 || palavra3==palavra2){
+					sorteio=Math.floor(Math.random() * 27);
+					palavra3=BD[sorteio];
+				}
+				var troca="";
+				if(palavra1.length>palavra2.length){
+					 troca=palavra1;
+					palavra1=palavra2;
+					palavra2=troca;
+				}
+				if(palavra1.length>palavra3.length){
+					 troca=palavra1;
+					palavra1=palavra3;
+					palavra3=troca;
+				}
+				if(palavra2.length>palavra3.length){
+					 troca=palavra2;
+					palavra2=palavra3;
+					palavra3=troca;
+				}
+				
+				var letras1="";
+				for(a=1;a<=palavra1.length;a++){
+					 letras1=letras1+"<input type='text' name='l"+a+"1' id='p1letra"+a+"' disabled>";
+				}
+				
+			
+				var painel=document.getElementById('palavra1');
+				painel.innerHTML=letras1;
+				
+				
+				var letras2="";
+				for(a=1;a<=palavra2.length;a++){
+					 letras2=letras2+"<input type='text' name='l"+a+"2' id='p2letra"+a+"' disabled>";
+				}
+				var painel=document.getElementById('palavra2');
+				painel.innerHTML=letras2;
+				
+				
+				var letras3="";
+				for(a=1;a<=palavra3.length;a++){
+					 letras3=letras3+"<input type='text' name='l"+a+"3' id='p3letra"+a+"' disabled>";
+				}
+				var painel=document.getElementById('palavra3');
+				painel.innerHTML=letras3;
+			}
+		</script>
+	</head>
+	<body onload="comecar()" bgcolor="black">
+		<h1>Adivinhe as palavras</h1>
+		<b><div id="letraerrada"></div></b>
+		<form name="f">
+		<div id="palavra1"></div>
+		<div id="palavra2"></div>
+		<div id="palavra3"></div>
+		<h1><div id="dica"></div></h1>
+		<div id="coracoes" style="text-align:center;">
+		<img src="coracoes.jpg">
+		<img src="coracoes.jpg">
+		<img src="coracoes.jpg">
+		<img src="coracoes.jpg">
+		<img src="coracoes.jpg">
+	</div>
+		</br>
+			<input type="button" value="A" name="A" onclick="letra('A')" >
+			<input type="button" value="B" name="B" onclick="letra('B')">
+			<input type="button" value="C" name="C" onclick="letra('C')">
+			<input type="button" value="D" name="D" onclick="letra('D')">
+			<input type="button" value="E" name="E" onclick="letra('E')">
+			<input type="button" value="F" name="F" onclick="letra('F')">
+			<input type="button" value="G" name="G" onclick="letra('G')">
+			<input type="button" value="H" name="H" onclick="letra('H')">
+			<input type="button" value="I" name="I" onclick="letra('I')">
+			<input type="button" value="J" name="J" onclick="letra('J')">
+			<input type="button" value="K" name="K" onclick="letra('K')">
+			<input type="button" value="L" name="L" onclick="letra('L')">
+			<input type="button" value="M" name="M" onclick="letra('M')">
+			<input type="button" value="N" name="N" onclick="letra('N')">
+			<input type="button" value="O" name="O" onclick="letra('O')">
+			<input type="button" value="P" name="P" onclick="letra('P')">
+			<input type="button" value="Q" name="Q" onclick="letra('Q')">
+			<input type="button" value="R" name="R" onclick="letra('R')">
+			<input type="button" value="S" name="S" onclick="letra('S')">
+			<input type="button" value="T" name="T" onclick="letra('T')">
+			<input type="button" value="U" name="U" onclick="letra('U')">
+			<input type="button" value="V" name="V" onclick="letra('V')">
+			<input type="button" value="W" name="W" onclick="letra('W')">
+			<input type="button" value="X" name="X" onclick="letra('X')">
+			<input type="button" value="Y" name="Y" onclick="letra('Y')">
+			<input type="button" value="Z " name="Z" onclick="letra('Z')">
+			
+	</form>
+	<h2 style="background-color:black;color:blue;position:absolute;top:90%;right:25%">Programado por :José Desenvolvedor</h2>
+	</body>
+</html>
